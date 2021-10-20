@@ -39,9 +39,7 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 // CODE HERE
-const postTaxPrices // = prices.map(/* Provide Your Callback Here );
-
-
+const postTaxPrices = prices.map(element => element * 1.07);
 
 ////////// PROBLEM 3 //////////
 
@@ -57,9 +55,7 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 // CODE HERE
-const totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
-
-
+const totalPopulation = populations.reduce((accu, curr) => accu + curr);
 
 ////////// PROBLEM 4 //////////
 
@@ -82,9 +78,7 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 // CODE HERE
-const myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
-
-
+const myStrongest = monstersInYourPocket.filter(element => element.CP > 200);
 
 ////////// PROBLEM 5 //////////
 
@@ -99,9 +93,9 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
   Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
 */
 
-// CODE HERE
-
-
+const orderTotals = orders.forEach(elem => {
+  elem.price + (elem.price * elem.tax);
+});
 
 ////////// PROBLEM 6 //////////
 
@@ -119,4 +113,5 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method(s) to create to get the sum of bobsTotal.
 */
 
-// CODE HERE
+const bobsPurchases = purchases.filter(element => element.owner === "Bob");
+const bobsTotal = bobsPurchases.reduce((accu, curr) => accu + curr.price);
